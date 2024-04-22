@@ -26,4 +26,7 @@ public class Friend extends BaseEntity {
 
     @Column(nullable = false)
     private boolean is_friend;
+
+    @Column(nullable = false)
+    private Boolean isDeleted;
 }

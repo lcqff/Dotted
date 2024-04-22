@@ -1,6 +1,7 @@
 package dotted.user.domain;
 
 import dotted.group.domain.Group;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -27,4 +28,7 @@ public class UserGroup {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id", nullable = false)
     Group group;
+
+    @Column(nullable = false)
+    private Boolean isDeleted;
 }

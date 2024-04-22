@@ -31,4 +31,7 @@ public class Feed extends BaseEntity {
 
     @OneToMany(mappedBy = "feed")
     private List<FeedUser>feedUsers;
+
+    @Column(nullable = false)
+    private Boolean isDeleted;
 }
