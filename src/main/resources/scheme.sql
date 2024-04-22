@@ -1,12 +1,14 @@
 create table user
 (
-    id         bigint auto_increment primary key,
-    name       varchar(255) not null,
-    email      varchar(255) not null,
-    image_url  varchar(255) not null,
-    is_deleted boolean      not null,
-    created_at datetime(6),
-    updated_at datetime(6)
+    id          bigint auto_increment primary key,
+    name        varchar(255) not null,
+    social_id   bigint       not null,
+    social_type varchar(255) not null,
+    email       varchar(255) not null,
+    image_url   varchar(255) not null,
+    is_deleted  boolean      not null,
+    created_at  datetime(6),
+    updated_at  datetime(6)
 )
 
 create table group
