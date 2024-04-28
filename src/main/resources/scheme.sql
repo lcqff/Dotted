@@ -1,24 +1,31 @@
+drop table if exists dotted.user;
+drop table if exists dotted.group;
+drop table if exists dotted.friend;
+drop table if exists dotted.schedule;
+drop table if exists dotted.schedule_item;
+drop table if exists dotted.feed;
+
 create table user
 (
     id          bigint auto_increment primary key,
     name        varchar(255) not null,
     social_id   bigint       not null,
     social_type varchar(255) not null,
-    email       varchar(255) not null,
+    email       varchar(255) ,
     image_url   varchar(255) not null,
     is_deleted  boolean      not null,
     created_at  datetime(6),
     updated_at  datetime(6)
-)
+);
 
-create table group
+create table group_
 (
     id         bigint auto_increment primary key,
     name       varchar(255) not null,
     is_deleted boolean      not null,
     created_at datetime(6),
     updated_at datetime(6)
-)
+);
 
 create table friend
 (
@@ -29,7 +36,7 @@ create table friend
     is_deleted boolean      not null,
     created_at datetime(6),
     updated_at datetime(6)
-)
+);
 
 create table schedule
 (
@@ -40,7 +47,7 @@ create table schedule
     is_deleted boolean      not null,
     created_at datetime(6),
     updated_at datetime(6)
-)
+);
 
 create table schedule_item
 (
@@ -48,10 +55,9 @@ create table schedule_item
     schedule_id     bigint       not null,
     day_of_week     VARCHAR(50)  not null,
     is_checked      varchar(255) not null,
-    is_deleted      boolean      not null,
     created_at      datetime(6),
     updated_at      datetime(6)
-)
+);
 
 create table feed
 (
@@ -61,4 +67,4 @@ create table feed
     is_deleted          boolean      not null,
     created_at          datetime(6),
     updated_at          datetime(6)
-)
+);
