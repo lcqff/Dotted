@@ -2,6 +2,7 @@ package dotted.login.utils;
 
 import dotted.login.application.dto.KakaoUserInfo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -11,7 +12,9 @@ import reactor.core.publisher.Flux;
 @RequiredArgsConstructor
 public class UserInfoFetcher {
     private final WebClient webClient;
-    private static final String KAKAO_REQUEST_URI = "https://kapi.kakao.com/v2/user/me";
+
+    @Value("${spring.security.oauth2.client.provider.kakao.user-info-uri}")
+    private String KAKAO_REQUEST_URI;
 
     public KakaoUserInfo getKaKaoUserInfo(String token) {
         Flux<KakaoUserInfo> response = webClient.post()
