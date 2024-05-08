@@ -27,4 +27,7 @@ public class ScheduleGroup extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "schedule_id", nullable = false)
     private Schedule schedule;
+
+    @Column(nullable = false)
+    private Boolean isDeleted;
 }

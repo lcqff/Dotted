@@ -34,4 +34,7 @@ public class Schedule extends BaseEntity {
 
     @OneToMany(mappedBy = "schedule")
     private List<ScheduleItem> scheduleItems;
+
+    @Column(nullable = false)
+    private Boolean isDeleted;
 }
