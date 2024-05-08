@@ -25,8 +25,8 @@ public class JwtTokenProvider {
         secret = Base64.getEncoder().encodeToString(secret.getBytes());
     }
 
-    public String createToken(String userPk) {
-        Claims claims = Jwts.claims().setSubject(userPk);
+    public String createToken(String userId) {
+        Claims claims = Jwts.claims().setSubject(userId);
         Date now = new Date();
         Date expireDate = new Date(now.getTime() + expireTimeMilliSecond);
         return Jwts.builder()
